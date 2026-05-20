@@ -1,20 +1,13 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# AI 會議記錄生成與翻譯工具
 
-# Run and deploy your AI Studio app
+這個專案會把會議逐字稿轉成摘要、重點、行動事項，並支援多國語言翻譯。
 
-This contains everything you need to run your app locally.
+## 在本機執行
 
-View your app in AI Studio: https://ai.studio/apps/9fdc0bc7-f4d1-4afc-a235-838ee0c7ecd0
+**先決條件：** Node.js
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
+1. 安裝相依套件：
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. 在 `.env` 中設定 `GEMINI_API_KEY` 為你的 Gemini API 金鑰
+3. 以開發模式啟動：
    `npm run dev`

@@ -7,7 +7,7 @@ import { createServer as createViteServer } from "vite";
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 // 初始化 Gemini 客戶端
 const apiKey = process.env.GEMINI_API_KEY;
@@ -18,7 +18,7 @@ if (apiKey) {
     apiKey: apiKey,
     httpOptions: {
       headers: {
-        'User-Agent': 'aistudio-build',
+        'User-Agent': 'ai-app',
       }
     }
   });
@@ -39,7 +39,7 @@ app.post("/api/generate", async (req: express.Request, res: express.Response) =>
     const currentApiKey = process.env.GEMINI_API_KEY;
     if (!currentApiKey) {
       return res.status(500).json({ 
-        error: "未偵測到 GEMINI_API_KEY。請在 AI Studio 中透過「Settings > Secrets」設定您的金鑰。" 
+        error: "未偵測到 GEMINI_API_KEY。請在環境變數 GEMINI_API_KEY 中設定您的金鑰（例如在 .env 檔案中）。" 
       });
     }
 
@@ -49,7 +49,7 @@ app.post("/api/generate", async (req: express.Request, res: express.Response) =>
         apiKey: currentApiKey,
         httpOptions: {
           headers: {
-            'User-Agent': 'aistudio-build',
+            'User-Agent': 'ai-app',
           }
         }
       });
